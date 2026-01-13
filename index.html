@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-pt">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parecer Técnico Elite - Anderson Fagundes | Live Consultoria</title>
+    <title>Parecer de Alinhamento - Anderson Fagundes | Live Consultoria</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <!-- Icons -->
@@ -18,7 +18,7 @@
             --live-glass-hover: rgba(15, 45, 75, 0.90);
             --glass-blur: blur(20px) saturate(180%);
             
-            /* --- Luz & Acção --- */
+            /* --- Luz & Ação --- */
             --live-accent: #00e800;
             --live-accent-dim: rgba(0, 232, 0, 0.15);
             --live-danger: #ff3b3b;
@@ -42,7 +42,8 @@
 
         body {
             background-color: var(--live-deep);
-            background-image: radial-gradient(circle at 50% 50%, rgba(10, 36, 61, 1) 0%, rgba(6, 25, 42, 1) 100%);
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png'), 
+                              radial-gradient(circle at 50% 50%, rgba(10, 36, 61, 1) 0%, rgba(6, 25, 42, 1) 100%);
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
@@ -56,7 +57,6 @@
             padding: 3rem 1.5rem;
         }
 
-        /* --- Organismos: Header --- */
         header {
             display: flex;
             justify-content: space-between;
@@ -67,7 +67,7 @@
         }
 
         .brand-meta h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 700;
             background: var(--kinetic-gradient);
             -webkit-background-clip: text;
@@ -80,6 +80,7 @@
             color: #888;
             margin-top: 0.5rem;
             font-size: 1.1rem;
+            font-weight: 300;
         }
 
         .status-badge {
@@ -93,18 +94,10 @@
             font-weight: 700;
             border: 1px solid var(--border-active);
             box-shadow: 0 0 20px rgba(0, 232, 0, 0.1);
-            animation: pulse 2s infinite;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); box-shadow: 0 0 30px rgba(0, 232, 0, 0.2); }
-            100% { transform: scale(1); }
-        }
-
-        /* --- Moléculas: Cards --- */
         .section-title {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--live-accent);
             text-transform: uppercase;
             letter-spacing: 3px;
@@ -112,6 +105,7 @@
             display: flex;
             align-items: center;
             gap: 0.8rem;
+            font-weight: 600;
         }
 
         .card {
@@ -130,13 +124,6 @@
             background: var(--live-glass-hover);
         }
 
-        /* --- Grid de Conteúdo --- */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
-        }
-
         .analytica-text {
             font-family: 'Merriweather', serif;
             font-size: 1.05rem;
@@ -144,20 +131,32 @@
             margin-bottom: 1.5rem;
         }
 
-        /* --- Átomos: Listas e Tags --- */
-        .tag-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
+        /* --- Grid de SWOT --- */
+        .swot-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
             margin-top: 1rem;
         }
 
-        .tag {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.4rem 1rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            border: 1px solid var(--border-subtle);
+        .swot-item {
+            padding: 1.5rem;
+            border-radius: 16px;
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 4px solid #444;
+        }
+
+        .swot-forcas { border-color: var(--live-accent); }
+        .swot-fraquezas { border-color: #f1c40f; }
+        .swot-oportunidades { border-color: #3498db; }
+        .swot-ameacas { border-color: var(--live-danger); }
+
+        .swot-title {
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
         }
 
         /* --- Dashboard de Score --- */
@@ -189,7 +188,12 @@
             color: #777;
         }
 
-        /* --- Secção de Teste Presencial --- */
+        /* --- Skill Bars --- */
+        .skill-group { margin-bottom: 2rem; }
+        .skill-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem; }
+        .skill-bar-bg { background: rgba(255, 255, 255, 0.05); height: 8px; border-radius: 4px; overflow: hidden; }
+        .skill-bar-fill { background: var(--live-accent); height: 100%; border-radius: 4px; transition: width 1s ease-out; }
+
         .test-plan {
             background: linear-gradient(135deg, rgba(0, 232, 0, 0.05) 0%, transparent 100%);
             border: 1px solid var(--border-active);
@@ -218,7 +222,6 @@
             box-shadow: 0 0 10px var(--live-accent);
         }
 
-        /* --- Botões Elite --- */
         .btn-elite {
             display: inline-flex;
             align-items: center;
@@ -240,18 +243,17 @@
             box-shadow: 0 15px 30px rgba(0, 232, 0, 0.3);
         }
 
-        /* --- Footer --- */
         footer {
             margin-top: 5rem;
             padding: 3rem;
             text-align: center;
             border-top: 1px solid var(--border-subtle);
             color: #555;
+            font-size: 0.8rem;
         }
 
-        /* --- Mobile --- */
         @media (max-width: 850px) {
-            .info-grid, .score-dashboard { grid-template-columns: 1fr; }
+            .swot-grid, .score-dashboard { grid-template-columns: 1fr; }
             header { flex-direction: column; gap: 2rem; }
             .brand-meta h1 { font-size: 2.2rem; }
         }
@@ -260,50 +262,91 @@
 <body>
 
     <div class="container">
-        <!-- HEADER ORGANISM -->
+        <!-- HEADER -->
         <header>
             <div class="brand-meta">
                 <img src="https://raw.githubusercontent.com/Clebito2/ConsultoriaLive/main/Logo%20live%20oficial-21.png" alt="Live Consultoria" style="height: 45px; margin-bottom: 1.5rem;">
                 <h1>Anderson Fagundes</h1>
-                <p>Parecer Técnico de Inteligência | Unidade Casa Goianita</p>
+                <p>Parecer Técnico de Alinhamento para Contratação | Unidade Casa Goianita</p>
             </div>
             <div class="status-badge">
-                <i data-lucide="shield-check"></i> ELITE: RECOMENDADO
+                <i data-lucide="shield-check"></i> Resultado: RECOMENDADO
             </div>
         </header>
 
-        <!-- DIAGNÓSTICO PROFUNDO -->
+        <!-- DIAGNÓSTICO E TRAJETÓRIA -->
         <div class="card">
-            <h2 class="section-title"><i data-lucide="database"></i> Diagnóstico de Performance</h2>
-            <div class="info-grid">
-                <div>
-                    <h3 style="color: #fff; margin-bottom: 1rem;">Experiência em Escala</h3>
-                    <p class="analytica-text">
-                        Anderson operou no coração do mercado financeiro de Porto Alegre (FIDC), gerenciando volumes críticos de <strong>100 a 200 atendimentos diários</strong>. A sua capacidade de lidar com tickets de <strong>R$ 100 mil</strong> demonstra um teto psicológico elevado para negociações complexas.
-                    </p>
-                    <div class="tag-list">
-                        <span class="tag">Hunter de Recuperação</span>
-                        <span class="tag">Gestão de FIDC</span>
-                        <span class="tag">Multicanal (WhatsApp/Tel)</span>
-                    </div>
+            <h2 class="section-title"><i data-lucide="history"></i> Trajetória e Diagnóstico Profundo</h2>
+            <p class="analytica-text">
+                Anderson apresenta uma trajetória sólida e ascendente no setor de fomento mercantil e recuperação de ativos. Com vasta experiência no mercado de Porto Alegre (FIDC), gerenciou operações críticas com volume de <strong>100 a 200 atendimentos diários</strong>. O candidato demonstra um teto psicológico elevado para negociações de alto impacto, lidando rotineiramente com tickets de até <strong>R$ 100 mil</strong>.
+            </p>
+            <p class="analytica-text">
+                O seu perfil é caracterizado por uma <strong>estabilidade incomum</strong> (Motivador C), potencializada pela mudança estratégica para Goiânia visando proximidade familiar. Academicamente qualificado (Gestão Financeira e cursando Adm), ele transcende a mera execução operacional, apresentando visão sistêmica sobre fluxo de caixa e impacto da inadimplência.
+            </p>
+        </div>
+
+        <!-- ANÁLISE SWOT -->
+        <div class="card">
+            <h2 class="section-title"><i data-lucide="scan-eye"></i> Matriz de Análise Estratégica (SWOT)</h2>
+            <div class="swot-grid">
+                <div class="swot-item swot-forcas">
+                    <span class="swot-title" style="color: var(--live-accent);">Forças</span>
+                    <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: #ccc;">
+                        <li>Expertise técnica em réguas de cobrança B2B e B2C.</li>
+                        <li>Maturidade emocional no contorno de objeções agressivas.</li>
+                        <li>Domínio pleno de CRM e multicanais (WhatsApp/Tel).</li>
+                    </ul>
                 </div>
-                <div>
-                    <h3 style="color: #fff; margin-bottom: 1rem;">Cultura e Motivadores</h3>
-                    <p class="analytica-text">
-                        A mudança para Goiânia foi estratégica e motivada por laços familiares. Anderson busca <strong>estabilidade e carreira</strong> (Motivador C). A sua ligação à comunidade (Igreja Universal) e o hábito de leitura sugerem um perfil resiliente e com alto autocontrole emocional.
-                    </p>
-                    <div class="tag-list">
-                        <span class="tag">Foco em Estabilidade</span>
-                        <span class="tag">Perfil Comunitário</span>
-                        <span class="tag">Longeividade Desejada</span>
-                    </div>
+                <div class="swot-item swot-fraquezas">
+                    <span class="swot-title" style="color: #f1c40f;">Fraquezas</span>
+                    <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: #ccc;">
+                        <li>Perfil consultivo pode reduzir velocidade em cobranças de baixo ticket.</li>
+                        <li>Risco de tédio se a rotina for puramente mecânica sem desafios.</li>
+                    </ul>
+                </div>
+                <div class="swot-item swot-oportunidades">
+                    <span class="swot-title" style="color: #3498db;">Oportunidades</span>
+                    <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: #ccc;">
+                        <li>Apoio estratégico na migração do novo ERP da Casa Goianita.</li>
+                        <li>Potencial braço direito para reestruturação do setor com Éryca.</li>
+                    </ul>
+                </div>
+                <div class="swot-item swot-ameacas">
+                    <span class="swot-title" style="color: var(--live-danger);">Ameaças</span>
+                    <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: #ccc;">
+                        <li>Assédio do mercado financeiro local se o plano de carreira não for claro.</li>
+                        <li>Gap salarial em relação à senioridade real do candidato.</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <!-- SCORECARD ORGANISM -->
+        <!-- COMPETÊNCIAS E SKILLS -->
         <div class="card">
-            <h2 class="section-title"><i data-lucide="bar-chart-big"></i> Scorecard Quantitativo</h2>
+            <h2 class="section-title"><i data-lucide="award"></i> Avaliação por Competências</h2>
+            <div class="info-grid">
+                <div class="skill-group">
+                    <div class="skill-header"><span>Negociação e Persuasão</span><span>95%</span></div>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-header"><span>Organização Processual</span><span>100%</span></div>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-header"><span>Resiliência sob Pressão</span><span>90%</span></div>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-header"><span>Coachability</span><span>85%</span></div>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCORECARD -->
+        <div class="card">
+            <h2 class="section-title"><i data-lucide="bar-chart-big"></i> Scorecard Quantitativo Final</h2>
             <div class="score-dashboard">
                 <div class="score-card">
                     <span class="score-val">4.8</span>
@@ -330,20 +373,19 @@
 
         <!-- PLANO DE TESTE PRESENCIAL -->
         <div class="card test-plan">
-            <h2 class="section-title" style="color: var(--live-accent);"><i data-lucide="calendar-clock"></i> Plano de Imersão (3 Dias - Rua 85)</h2>
+            <h2 class="section-title" style="color: var(--live-accent);"><i data-lucide="calendar-clock"></i> Plano de Imersão e Validação (3 Dias - Unidade Rua 85)</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <h4 style="color: #fff;">Dia 1: Aculturação e Sistemas</h4>
-                    <p class="analytica-text">Apresentação à Supervisora Érica. Treinamento no novo ERP e absorção da régua de cobrança específica da Casa Goianita.</p>
+                    <h4 style="color: #fff;">Dia 1: Aculturação e Integração com Éryca</h4>
+                    <p class="analytica-text">Apresentação da cultura organizacional da Casa Goianita. Alinhamento de expectativas com a supervisora Éryca e introdução aos sistemas vigentes.</p>
                 </div>
                 <div class="timeline-item">
-                    <h4 style="color: #fff;">Dia 2: Operação Assistida</h4>
-                    <h5 style="color: var(--live-accent); font-size: 0.8rem; margin-bottom: 0.5rem;">FOCO: HUNTER ATIVO</h5>
-                    <p class="analytica-text">Início dos contactos reais com a carteira inadimplente. Avaliação de contorno de objecções e registo em CRM.</p>
+                    <h4 style="color: #fff;">Dia 2: Operação Assistida e Técnicas Hunter</h4>
+                    <p class="analytica-text">Início das operações reais. Avaliação da velocidade de digitação, fluidez no CRM e aplicação do tom de voz "Hunter" na recuperação de ativos vencidos.</p>
                 </div>
                 <div class="timeline-item">
-                    <h4 style="color: #fff;">Dia 3: Avaliação de Autonomia</h4>
-                    <p class="analytica-text">Fecho de acordos e conciliação bancária autónoma. Reunião de feedback com a consultoria Live para contrato definitivo.</p>
+                    <h4 style="color: #fff;">Dia 3: Autonomia e Visão Estratégica</h4>
+                    <p class="analytica-text">Resolução autônoma de casos críticos. Reunião de fechamento com a consultoria Live para formalização do contrato baseado em performance.</p>
                 </div>
             </div>
         </div>
@@ -351,22 +393,21 @@
         <!-- FOOTER ACTIONS -->
         <div style="text-align: center;">
             <a href="https://drive.google.com/file/d/1KOS9TuchO2Sj90BEHJF1r_HZ3nmp_nE-/view?usp=sharing" target="_blank" class="btn-elite">
-                <i data-lucide="file-text"></i> ACESSAR CV COMPLETO
+                <i data-lucide="file-text"></i> ACESSAR CURRÍCULO COMPLETO
             </a>
-            <p style="margin-top: 1.5rem; font-size: 0.8rem; color: #555;">Validação realizada via Manual Live Seleção V6.0</p>
+            <p style="margin-top: 1.5rem; font-size: 0.8rem; color: #555;">Documento gerado sob as diretrizes do Sistema Elite V6.0 - Live Consultoria</p>
         </div>
 
         <footer>
-            <p>Live Consultoria Empresarial | Ecossistema de Performance Comercial</p>
-            <p>Relatório Confidencial para a Diretoria da Casa Goianita</p>
+            <p>Live Consultoria Empresarial | Transformando Potencial em Performance.</p>
+            <p>Este documento é confidencial e destinado exclusivamente à diretoria da Casa Goianita.</p>
         </footer>
     </div>
 
     <script>
-        // Inicializar ícones Lucide
         lucide.createIcons();
 
-        // Animação de entrada dos cards ao carregar
+        // Efeito de animação ao scroll
         document.querySelectorAll('.card').forEach((card, index) => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(30px)';
