@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parecer Técnico - Anderson Fagundes | Live Consultoria</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            /* --- Atmosfera (Backgrounds) --- */
+            --live-deep: #06192a;
+            
+            /* --- Superfícies (Refractive Glass) --- */
+            --live-glass: rgba(10, 36, 61, 0.70);
+            --live-glass-hover: rgba(15, 45, 75, 0.85);
+            --glass-blur: blur(16px) saturate(180%);
+            
+            /* --- Luz & Ação --- */
+            --live-accent: #00e800;
+            --live-accent-dim: rgba(0, 232, 0, 0.15);
+            --kinetic-gradient: linear-gradient(90deg, #ffffff 0%, #cccccc 50%, #00e800 100%);
+            
+            /* --- Física de Animação --- */
+            --spring-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --ease-fluid: cubic-bezier(0.4, 0.0, 0.2, 1);
+            
+            /* --- Bordas --- */
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-active: rgba(0, 232, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--live-deep);
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .logo {
+            height: 50px;
+            filter: drop-shadow(0 0 10px rgba(0, 232, 0, 0.2));
+        }
+
+        /* --- Tipografia --- */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--kinetic-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+            transition: letter-spacing 0.5s var(--ease-fluid);
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            color: var(--live-accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .analytica-mode {
+            font-family: 'Merriweather', serif;
+        }
+
+        /* --- Cards --- */
+        .card {
+            background: var(--live-glass);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.4s var(--spring-bounce);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (hover: hover) {
+            .card:hover {
+                transform: translateY(-8px);
+                border-color: var(--border-active);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        /* --- Grid --- */
+        .grid-score {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .score-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .score-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--live-accent);
+        }
+
+        .score-label {
+            font-size: 0.75rem;
+            color: #aaa;
+            text-transform: uppercase;
+        }
+
+        /* --- Status --- */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--live-accent-dim);
+            color: var(--live-accent);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 1px solid var(--border-active);
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: transparent;
+            color: var(--live-accent);
+            border: 1px solid var(--live-accent);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s var(--spring-bounce);
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        .btn:hover {
+            background: var(--live-accent);
+            color: var(--live-deep);
+            box-shadow: 0 0 20px var(--live-accent-dim);
+        }
+
+        /* --- Sections --- */
+        .star-section {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            margin-bottom: 1.5rem;
+        }
+
+        .star-letter {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--live-accent-dim);
+            line-height: 1;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--live-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        /* --- Mobile Optimization --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .card { padding: 1.5rem; }
+            .star-section { grid-template-columns: 1fr; gap: 0.5rem; }
+            .grid-score { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="https://raw.githubusercontent.com/Clebito2/ConsultoriaLive/main/Logo%20live%20oficial-21.png" alt="Live Consultoria" class="logo">
+            <div class="status-badge">
+                <i data-lucide="check-circle"></i> ALTAMENTE RECOMENDADO
+            </div>
+        </header>
+
+        <section>
+            <h1>Anderson Fagundes Lindner</h1>
+            <p style="color: #888; margin-bottom: 2rem;">Candidato: Auxiliar de Cobrança | Cliente: Casa Goianita</p>
+        </section>
+
+        <!-- Bloco 1: Análise STAR -->
+        <div class="card">
+            <h2><i data-lucide="target"></i> Análise Comportamental (STAR)</h2>
+            <div class="analytica-mode">
+                <div class="star-section">
+                    <span class="star-letter">S</span>
+                    <div>
+                        <strong>Situação:</strong> Atuação em empresa de fomento (FIDC) gerenciando cobranças complexas de indústrias têxteis e metalúrgicas, com tickets de até R$ 100.000,00.
+                    </div>
+                </div>
+                <div class="star-section">
+                    <span class="star-letter">T</span>
+                    <div>
+                        <strong>Tarefa:</strong> Gestão completa da régua de cobrança, desde o aviso preventivo até a execução de negativação via Serasa ou processos de recompra.
+                    </div>
+                </div>
+                <div class="star-section">
+                    <span class="star-letter">A</span>
+                    <div>
+                        <strong>Ação:</strong> Abordagem consultiva e estratégica. Foco na identificação de problemas logísticos como causa da inadimplência, atuando como ponte de resolução.
+                    </div>
+                </div>
+                <div class="star-section">
+                    <span class="star-letter">R</span>
+                    <div>
+                        <strong>Resultado:</strong> Gestão de alto volume (100-200 atendimentos diários) com manutenção de estabilidade emocional e recuperação efetiva de crédito.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bloco 2: Temperamento -->
+        <div class="card">
+            <h2><i data-lucide="brain"></i> Análise de Temperamento</h2>
+            <p><strong>Perfil Estimado:</strong> Melancólico-Fleumático (O Perfil Processual).</p>
+            <p style="margin-top: 1rem;" class="analytica-mode">
+                Anderson apresenta um perfil extremamente organizado e detalhista. Embora a vaga peça um perfil agressivo (Hunter), sua força reside na <strong>disciplina processual impecável</strong>. Ele compensa a falta de "ataque" com uma persistência metódica e uso rigoroso de ferramentas de CRM, garantindo que nenhum débito seja esquecido.
+            </p>
+        </div>
+
+        <!-- Bloco 3: Scorecard -->
+        <div class="card">
+            <h2><i data-lucide="bar-chart-3"></i> Scorecard Quantitativo (Padrão Live)</h2>
+            <div class="grid-score">
+                <div class="score-item">
+                    <span class="score-value">4.8</span>
+                    <span class="score-label">Comportamental</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-value">5.0</span>
+                    <span class="score-label">Técnica</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-value">4.5</span>
+                    <span class="score-label">Role Play</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-value">5.0</span>
+                    <span class="score-label">Alinhamento</span>
+                </div>
+            </div>
+            <div style="margin-top: 2rem; text-align: center; padding: 1rem; border: 1px dashed var(--live-accent);">
+                <span class="score-label">Score Final Ponderado</span>
+                <span class="score-value" style="font-size: 3rem;">4.7</span>
+            </div>
+        </div>
+
+        <!-- Bloco 4: Parecer e CV -->
+        <div class="card" style="border-left: 5px solid var(--live-accent);">
+            <h2><i data-lucide="file-text"></i> Parecer do Consultor</h2>
+            <p class="analytica-mode">
+                Candidato com maturidade profissional acima da média. Sua formação em Gestão Financeira e experiência em FIDCs trazem uma bagagem analítica que agregará valor imediato à supervisão financeira da Casa Goianita. A mudança para Goiânia e a busca por estabilidade mitigam riscos de turnover a curto prazo.
+            </p>
+            <a href="https://drive.google.com/file/d/1KOS9TuchO2Sj90BEHJF1r_HZ3nmp_nE-/view?usp=sharing" target="_blank" class="btn">
+                <i data-lucide="external-link"></i> ACESSAR CURRÍCULO COMPLETO
+            </a>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Live Consultoria Empresarial - Inovação e Performance.</p>
+            <p>Powered by <a href="mailto:cleberdonato@ecossistemalive.com.br">Cléber Donato</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Inicializa ícones Lucide
+        lucide.createIcons();
+
+        // Efeito de movimento do gradiente nos títulos ao scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const h1 = document.querySelector('h1');
+            if (h1) {
+                h1.style.letterSpacing = `${(scrolled / 500) - 1}px`;
+            }
+        });
+    </script>
+</body>
+</html>
