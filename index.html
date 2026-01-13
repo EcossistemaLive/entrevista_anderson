@@ -42,6 +42,7 @@
 
         body {
             background-color: var(--live-deep);
+            /* Textura Oficial V6.0 */
             background-image: url('https://www.transparenttextures.com/patterns/cubes.png'), 
                               radial-gradient(circle at 50% 50%, rgba(10, 36, 61, 1) 0%, rgba(6, 25, 42, 1) 100%);
             color: #ffffff;
@@ -57,6 +58,7 @@
             padding: 3rem 1.5rem;
         }
 
+        /* --- Header --- */
         header {
             display: flex;
             justify-content: space-between;
@@ -129,9 +131,55 @@
             font-size: 1.05rem;
             color: #d1d1d1;
             margin-bottom: 1.5rem;
+            text-align: justify;
         }
 
-        /* --- Grid de SWOT --- */
+        /* --- Tabela STAR (Estilizada) --- */
+        .star-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .star-row {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .star-row:hover {
+            transform: translateX(10px);
+            border-color: var(--live-accent);
+        }
+
+        .star-icon {
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--live-accent);
+        }
+
+        .star-content {
+            padding: 1.5rem;
+        }
+
+        .star-label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- SWOT Grid --- */
         .swot-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -155,11 +203,12 @@
             font-weight: 700;
             font-size: 0.8rem;
             text-transform: uppercase;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             display: block;
+            letter-spacing: 1px;
         }
 
-        /* --- Dashboard de Score --- */
+        /* --- Score Dashboard --- */
         .score-dashboard {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -188,12 +237,19 @@
             color: #777;
         }
 
-        /* --- Skill Bars --- */
-        .skill-group { margin-bottom: 2rem; }
-        .skill-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem; }
-        .skill-bar-bg { background: rgba(255, 255, 255, 0.05); height: 8px; border-radius: 4px; overflow: hidden; }
-        .skill-bar-fill { background: var(--live-accent); height: 100%; border-radius: 4px; transition: width 1s ease-out; }
+        /* --- Skills --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
 
+        .skill-group { margin-bottom: 1.5rem; }
+        .skill-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 600; }
+        .skill-bar-bg { background: rgba(255, 255, 255, 0.05); height: 8px; border-radius: 4px; overflow: hidden; }
+        .skill-bar-fill { background: var(--live-accent); height: 100%; border-radius: 4px; transition: width 1.5s var(--spring-bounce); }
+
+        /* --- Timeline --- */
         .test-plan {
             background: linear-gradient(135deg, rgba(0, 232, 0, 0.05) 0%, transparent 100%);
             border: 1px solid var(--border-active);
@@ -222,6 +278,7 @@
             box-shadow: 0 0 10px var(--live-accent);
         }
 
+        /* --- Buttons --- */
         .btn-elite {
             display: inline-flex;
             align-items: center;
@@ -249,13 +306,16 @@
             text-align: center;
             border-top: 1px solid var(--border-subtle);
             color: #555;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
         }
 
+        footer a { color: var(--live-accent); text-decoration: none; }
+
         @media (max-width: 850px) {
-            .swot-grid, .score-dashboard { grid-template-columns: 1fr; }
+            .swot-grid, .score-dashboard, .skills-grid { grid-template-columns: 1fr; }
             header { flex-direction: column; gap: 2rem; }
             .brand-meta h1 { font-size: 2.2rem; }
+            .star-row { grid-template-columns: 50px 1fr; }
         }
     </style>
 </head>
@@ -270,152 +330,205 @@
                 <p>Parecer Técnico de Alinhamento para Contratação | Unidade Casa Goianita</p>
             </div>
             <div class="status-badge">
-                <i data-lucide="shield-check"></i> Resultado: RECOMENDADO
+                <i data-lucide="check-circle"></i> Resultado: RECOMENDADO
             </div>
         </header>
 
-        <!-- DIAGNÓSTICO E TRAJETÓRIA -->
+        <!-- BLOCO 1 E 2: DIAGNÓSTICO -->
         <div class="card">
-            <h2 class="section-title"><i data-lucide="history"></i> Trajetória e Diagnóstico Profundo</h2>
-            <p class="analytica-text">
-                Anderson apresenta uma trajetória sólida e ascendente no setor de fomento mercantil e recuperação de ativos. Com vasta experiência no mercado de Porto Alegre (FIDC), gerenciou operações críticas com volume de <strong>100 a 200 atendimentos diários</strong>. O candidato demonstra um teto psicológico elevado para negociações de alto impacto, lidando rotineiramente com tickets de até <strong>R$ 100 mil</strong>.
-            </p>
-            <p class="analytica-text">
-                O seu perfil é caracterizado por uma <strong>estabilidade incomum</strong> (Motivador C), potencializada pela mudança estratégica para Goiânia visando proximidade familiar. Academicamente qualificado (Gestão Financeira e cursando Adm), ele transcende a mera execução operacional, apresentando visão sistêmica sobre fluxo de caixa e impacto da inadimplência.
-            </p>
+            <h2 class="section-title"><i data-lucide="history"></i> Trajetória e Perfil Técnico (Senioridade)</h2>
+            <div class="analytica-text">
+                <p style="margin-bottom: 1rem;">
+                    <strong>Trajetória:</strong> Anderson construiu uma carreira sólida na Capitalrs (Porto Alegre), com quase 4 anos de atuação em fomento mercantil (FIDC). Sua base iniciou-se como Jovem Aprendiz no Hospital Moinhos de Vento, demonstrando lealdade e ciclos longos. Possui formação concluída em <strong>Gestão Financeira</strong> e está cursando Administração.
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    <strong>Motivação (Fit):</strong> A mudança recente para Goiânia busca estabilidade familiar. Ele vê na Casa Goianita a oportunidade ideal para sair do Home Office e atuar em um ambiente presencial e estruturado, aplicando sua base acadêmica.
+                </p>
+                <p>
+                    <strong>Rotina de Alta Pressão:</strong> Gerenciava a régua de cobrança completa (E-mail, WhatsApp, Telefone) com volumes massivos de <strong>100 a 200 atendimentos diários</strong>. Operava com metas baseadas em recuperação de ativos de alto valor (tickets até R$ 100.000,00), demonstrando familiaridade com premiação por performance.
+                </p>
+            </div>
         </div>
 
-        <!-- ANÁLISE SWOT -->
+        <!-- BLOCO 3: ANÁLISE STAR ESTRUTURADA -->
         <div class="card">
-            <h2 class="section-title"><i data-lucide="scan-eye"></i> Matriz de Análise Estratégica (SWOT)</h2>
+            <h2 class="section-title"><i data-lucide="target"></i> Análise Comportamental (Método STAR)</h2>
+            <div class="star-container">
+                
+                <div class="star-row">
+                    <div class="star-icon">S</div>
+                    <div class="star-content">
+                        <span class="star-label">Situação (Contexto)</span>
+                        <p>Ambiente de FIDC (Fundo de Investimento) com alta pressão, lidando com inadimplência de indústrias e valores expressivos.</p>
+                    </div>
+                </div>
+
+                <div class="star-row">
+                    <div class="star-icon">T</div>
+                    <div class="star-content">
+                        <span class="star-label">Tarefa (Desafio)</span>
+                        <p>Recuperar crédito de clientes hostis ou com problemas logísticos, evitando a negativação jurídica e mantendo o relacionamento comercial.</p>
+                    </div>
+                </div>
+
+                <div class="star-row">
+                    <div class="star-icon">A</div>
+                    <div class="star-content">
+                        <span class="star-label">Ação (Comportamento)</span>
+                        <p>Adotou postura investigativa ao invés de combativa. Buscou a raiz do problema (ex: mercadoria não entregue) e usou o CRM para "blindar" a negociação com dados.</p>
+                    </div>
+                </div>
+
+                <div class="star-row">
+                    <div class="star-icon">R</div>
+                    <div class="star-content">
+                        <span class="star-label">Resultado (Entrega)</span>
+                        <p>Manutenção de alta performance com controle emocional. Conseguiu reverter quadros de inadimplência técnica através de organização e diálogo consultivo.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ANÁLISE ESTRATÉGICA (SWOT) -->
+        <div class="card">
+            <h2 class="section-title"><i data-lucide="scan-eye"></i> Matriz Estratégica (Insights do Candidato)</h2>
             <div class="swot-grid">
                 <div class="swot-item swot-forcas">
                     <span class="swot-title" style="color: var(--live-accent);">Forças</span>
-                    <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: #ccc;">
-                        <li>Expertise técnica em réguas de cobrança B2B e B2C.</li>
-                        <li>Maturidade emocional no contorno de objeções agressivas.</li>
-                        <li>Domínio pleno de CRM e multicanais (WhatsApp/Tel).</li>
+                    <ul style="font-size: 0.8rem; padding-left: 1.2rem; color: #ccc;">
+                        <li>Senioridade técnica em cobrança B2B (FIDC).</li>
+                        <li>Formação acadêmica em Gestão Financeira.</li>
+                        <li>Excelente oratória e clareza de processos.</li>
                     </ul>
                 </div>
                 <div class="swot-item swot-fraquezas">
                     <span class="swot-title" style="color: #f1c40f;">Fraquezas</span>
-                    <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: #ccc;">
-                        <li>Perfil consultivo pode reduzir velocidade em cobranças de baixo ticket.</li>
-                        <li>Risco de tédio se a rotina for puramente mecânica sem desafios.</li>
+                    <ul style="font-size: 0.8rem; padding-left: 1.2rem; color: #ccc;">
+                        <li>Perfil mais analítico/consultivo do que agressivo.</li>
+                        <li>Baixa tolerância a ambientes desorganizados.</li>
                     </ul>
                 </div>
                 <div class="swot-item swot-oportunidades">
                     <span class="swot-title" style="color: #3498db;">Oportunidades</span>
-                    <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: #ccc;">
-                        <li>Apoio estratégico na migração do novo ERP da Casa Goianita.</li>
-                        <li>Potencial braço direito para reestruturação do setor com Éryca.</li>
+                    <ul style="font-size: 0.8rem; padding-left: 1.2rem; color: #ccc;">
+                        <li>Auxiliar na estruturação de processos com Éryca.</li>
+                        <li>Elevar o nível técnico da equipe de cobrança.</li>
                     </ul>
                 </div>
                 <div class="swot-item swot-ameacas">
                     <span class="swot-title" style="color: var(--live-danger);">Ameaças</span>
-                    <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: #ccc;">
-                        <li>Assédio do mercado financeiro local se o plano de carreira não for claro.</li>
-                        <li>Gap salarial em relação à senioridade real do candidato.</li>
+                    <ul style="font-size: 0.8rem; padding-left: 1.2rem; color: #ccc;">
+                        <li>Risco de desmotivação se a função for 100% operacional.</li>
+                        <li>Necessidade de plano de carreira claro.</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- COMPETÊNCIAS E SKILLS -->
+        <!-- AVALIAÇÃO POR COMPETÊNCIAS (SKILLS) -->
         <div class="card">
-            <h2 class="section-title"><i data-lucide="award"></i> Avaliação por Competências</h2>
-            <div class="info-grid">
-                <div class="skill-group">
-                    <div class="skill-header"><span>Negociação e Persuasão</span><span>95%</span></div>
-                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+            <h2 class="section-title"><i data-lucide="sliders"></i> Ficha de Avaliação Técnica</h2>
+            <div class="skills-grid">
+                <div>
+                    <h3 style="font-size: 0.85rem; margin-bottom: 1rem; color: #aaa;">COMPETÊNCIAS COMPORTAMENTAIS (50%)</h3>
+                    
+                    <div class="skill-group">
+                        <div class="skill-header"><span>Comunicação / Negociação</span><span>5/5</span></div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+                        <p style="font-size: 0.7rem; color: #777; margin-top: 0.3rem;">Comunicação clara, pausada e profissional.</p>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-header"><span>Resiliência a Conflitos</span><span>4/5</span></div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+                        <p style="font-size: 0.7rem; color: #777; margin-top: 0.3rem;">Mantém calma, mas foca mais no processo que no embate.</p>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-header"><span>Organização / Disciplina</span><span>5/5</span></div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+                        <p style="font-size: 0.7rem; color: #777; margin-top: 0.3rem;">Foco total em metas e alimentação de CRM.</p>
+                    </div>
                 </div>
-                <div class="skill-group">
-                    <div class="skill-header"><span>Organização Processual</span><span>100%</span></div>
-                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
-                </div>
-                <div class="skill-group">
-                    <div class="skill-header"><span>Resiliência sob Pressão</span><span>90%</span></div>
-                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
-                </div>
-                <div class="skill-group">
-                    <div class="skill-header"><span>Coachability</span><span>85%</span></div>
-                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+
+                <div>
+                    <h3 style="font-size: 0.85rem; margin-bottom: 1rem; color: #aaa;">COMPETÊNCIAS TÉCNICAS (30%) & ALINHAMENTO</h3>
+
+                    <div class="skill-group">
+                        <div class="skill-header"><span>Experiência em Cobrança</span><span>5/5</span></div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+                        <p style="font-size: 0.7rem; color: #777; margin-top: 0.3rem;">Domínio de réguas e ferramentas multicanal.</p>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-header"><span>Conhecimento Financeiro</span><span>5/5</span></div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+                        <p style="font-size: 0.7rem; color: #777; margin-top: 0.3rem;">Graduado; entende impacto no fluxo de caixa.</p>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-header"><span>Fit Cultural / Coachability</span><span>4/5</span></div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+                        <p style="font-size: 0.7rem; color: #777; margin-top: 0.3rem;">Aberto a novos sistemas (ERP) e busca estabilidade.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- SCORECARD -->
+        <!-- SCORECARD DASHBOARD -->
         <div class="card">
-            <h2 class="section-title"><i data-lucide="bar-chart-big"></i> Scorecard Quantitativo Final</h2>
-            <div class="score-dashboard">
-                <div class="score-card">
-                    <span class="score-val">4.8</span>
-                    <span class="score-label">Comportamental</span>
-                </div>
-                <div class="score-card">
-                    <span class="score-val">5.0</span>
-                    <span class="score-label">Técnica</span>
-                </div>
-                <div class="score-card">
-                    <span class="score-val">4.5</span>
-                    <span class="score-label">Role Play</span>
-                </div>
-                <div class="score-card">
-                    <span class="score-val">5.0</span>
-                    <span class="score-label">Alinhamento</span>
-                </div>
-            </div>
-            <div style="margin-top: 3rem; text-align: center; border: 1px dashed var(--live-accent-dim); padding: 2rem; border-radius: 20px;">
-                <p style="text-transform: uppercase; letter-spacing: 2px; color: #888;">Score Final Ponderado</p>
-                <h3 style="font-size: 4rem; color: var(--live-accent);">4.7 / 5.0</h3>
+            <h2 class="section-title"><i data-lucide="activity"></i> Scorecard Final</h2>
+            <div style="margin-top: 2rem; text-align: center; border: 1px dashed var(--live-accent-dim); padding: 2.5rem; border-radius: 20px;">
+                <p style="text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 0.5rem;">Parecer Final: Aprovado</p>
+                <h3 style="font-size: 4.5rem; color: var(--live-accent); line-height: 1;">4.7 <span style="font-size: 1.5rem; color: #555;">/ 5.0</span></h3>
+                <p style="margin-top: 1rem; color: #ccc;">"Candidato tecnicamente superior à vaga (Overqualified). Requer gestão de expectativas."</p>
             </div>
         </div>
 
-        <!-- PLANO DE TESTE PRESENCIAL -->
+        <!-- PLANO DE AÇÃO -->
         <div class="card test-plan">
-            <h2 class="section-title" style="color: var(--live-accent);"><i data-lucide="calendar-clock"></i> Plano de Imersão e Validação (3 Dias - Unidade Rua 85)</h2>
+            <h2 class="section-title" style="color: var(--live-accent);"><i data-lucide="zap"></i> Orientação para o Recrutador (3 Dias)</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <h4 style="color: #fff;">Dia 1: Aculturação e Integração com Éryca</h4>
-                    <p class="analytica-text">Apresentação da cultura organizacional da Casa Goianita. Alinhamento de expectativas com a supervisora Éryca e introdução aos sistemas vigentes.</p>
+                    <h4 style="color: #fff;">Integração Técnica com Éryca</h4>
+                    <p class="analytica-text">Apresentar à supervisora Éryca para validar entrosamento. Avaliar familiaridade com o novo ERP e velocidade de digitação.</p>
                 </div>
                 <div class="timeline-item">
-                    <h4 style="color: #fff;">Dia 2: Operação Assistida e Técnicas Hunter</h4>
-                    <p class="analytica-text">Início das operações reais. Avaliação da velocidade de digitação, fluidez no CRM e aplicação do tom de voz "Hunter" na recuperação de ativos vencidos.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4 style="color: #fff;">Dia 3: Autonomia e Visão Estratégica</h4>
-                    <p class="analytica-text">Resolução autônoma de casos críticos. Reunião de fechamento com a consultoria Live para formalização do contrato baseado em performance.</p>
+                    <h4 style="color: #fff;">Validação Operacional</h4>
+                    <p class="analytica-text">Monitorar se a rotina operacional não gera frustração, dado o alto nível técnico do candidato. Estabelecer metas claras desde o dia 1.</p>
                 </div>
             </div>
         </div>
 
         <!-- FOOTER ACTIONS -->
-        <div style="text-align: center;">
+        <div style="text-align: center; margin-top: 3rem;">
             <a href="https://drive.google.com/file/d/1KOS9TuchO2Sj90BEHJF1r_HZ3nmp_nE-/view?usp=sharing" target="_blank" class="btn-elite">
-                <i data-lucide="file-text"></i> ACESSAR CURRÍCULO COMPLETO
+                <i data-lucide="external-link"></i> ACESSAR CURRÍCULO COMPLETO
             </a>
-            <p style="margin-top: 1.5rem; font-size: 0.8rem; color: #555;">Documento gerado sob as diretrizes do Sistema Elite V6.0 - Live Consultoria</p>
+            <p style="margin-top: 2rem; font-size: 0.8rem; color: #555;">Documento gerado sob as diretrizes do Sistema Elite V6.0 - Live Consultoria</p>
         </div>
 
         <footer>
             <p>Live Consultoria Empresarial | Transformando Potencial em Performance.</p>
-            <p>Este documento é confidencial e destinado exclusivamente à diretoria da Casa Goianita.</p>
+            <p>Confidencial &copy; 2026. Powered by <a href="mailto:cleberdonato@ecossistemalive.com.br">Cléber Donato</a>.</p>
         </footer>
     </div>
 
     <script>
         lucide.createIcons();
 
-        // Efeito de animação ao scroll
-        document.querySelectorAll('.card').forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            setTimeout(() => {
-                card.style.transition = 'all 0.8s var(--spring-bounce)';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, index * 150);
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.8s var(--spring-bounce)';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
         });
     </script>
 </body>
